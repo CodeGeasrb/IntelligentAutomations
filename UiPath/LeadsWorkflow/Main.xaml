@@ -220,7 +220,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:InvokeWorkflowFile>
-            <ui:GetRobotAsset AssetName="LeadBridgePath" CacheStrategy="None" DisplayName="Get LeadBridge path" FolderPath="PersonalBots" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="GetRobotAsset_2" TimeoutMS="10">
+            <ui:GetRobotAsset AssetName="LeadBridgePath" CacheStrategy="None" DisplayName="Get LeadBridge path" FolderPath="PersonalBots" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="GetRobotAsset_2" TimeoutMS="500">
               <ui:GetRobotAsset.Value>
                 <OutArgument x:TypeArguments="x:String">[LeadBridgePath]</OutArgument>
               </ui:GetRobotAsset.Value>
@@ -231,7 +231,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:GetRobotAsset>
-            <ui:GetRobotCredential AssetName="LeadBridgeAccount" CacheStrategy="None" DisplayName="Get LeadBridge Credential" FolderPath="PersonalBots" sap:VirtualizedContainerService.HintSize="416,48" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[LeadBridgePassword]" TimeoutMS="[LargeTimeout]" Username="[LeadBridgeUser]">
+            <ui:GetRobotCredential AssetName="LeadBridgeAccount" CacheStrategy="None" DisplayName="Get LeadBridge Credential" FolderPath="PersonalBots" sap:VirtualizedContainerService.HintSize="416,48" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[LeadBridgePassword]" TimeoutMS="500" Username="[LeadBridgeUser]">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
