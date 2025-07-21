@@ -3,19 +3,85 @@
   "DocumentTypes": [
     {
       "Connections": [],
-      "DocumentTypeId": "Marketing.LeadsForms.Leadsform",
+      "DocumentTypeId": "Marketing.Leads.Forms",
       "Group": "Marketing",
-      "Category": "Leads processing",
-      "Name": "Leads form",
+      "Category": "Leads",
+      "Name": "Forms",
       "OptionalUniqueIdentifier": "",
       "TypeField": {
-        "FieldId": "Marketing.LeadsForms.Leadsform.DocumentType",
+        "FieldId": "Marketing.Leads.Forms.DocumentType",
         "FieldName": "Document Type"
       },
       "Fields": [
         {
-          "FieldId": "Marketing.LeadsForms.Leadsform.FullName",
+          "FieldId": "Marketing.Leads.Forms.FullName",
           "FieldName": "FullName",
+          "IsMultiValue": false,
+          "Type": "Text",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#038a18"
+            },
+            {
+              "Key": "Hotkey",
+              "Value": "l"
+            }
+          ],
+          "RuleSet": null,
+          "DefaultValue": "",
+          "DataSource": null
+        },
+        {
+          "FieldId": "Marketing.Leads.Forms.Company",
+          "FieldName": "Company",
+          "IsMultiValue": false,
+          "Type": "Text",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#fa6616"
+            },
+            {
+              "Key": "Hotkey",
+              "Value": "c"
+            }
+          ],
+          "RuleSet": null,
+          "DefaultValue": "",
+          "DataSource": null
+        },
+        {
+          "FieldId": "Marketing.Leads.Forms.Email",
+          "FieldName": "Email",
+          "IsMultiValue": false,
+          "Type": "Text",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#8a97a0"
+            },
+            {
+              "Key": "Hotkey",
+              "Value": "e"
+            }
+          ],
+          "RuleSet": null,
+          "DefaultValue": "",
+          "DataSource": null
+        },
+        {
+          "FieldId": "Marketing.Leads.Forms.PhoneNumber",
+          "FieldName": "PhoneNumber",
           "IsMultiValue": false,
           "Type": "Text",
           "DeriveFieldsFormat": "",
@@ -28,72 +94,6 @@
             },
             {
               "Key": "Hotkey",
-              "Value": "l"
-            }
-          ],
-          "RuleSet": null,
-          "DefaultValue": "",
-          "DataSource": null
-        },
-        {
-          "FieldId": "Marketing.LeadsForms.Leadsform.Company",
-          "FieldName": "Company",
-          "IsMultiValue": false,
-          "Type": "Text",
-          "DeriveFieldsFormat": "",
-          "Components": [],
-          "SetValues": [],
-          "Metadata": [
-            {
-              "Key": "Color",
-              "Value": "#b37710"
-            },
-            {
-              "Key": "Hotkey",
-              "Value": "c"
-            }
-          ],
-          "RuleSet": null,
-          "DefaultValue": "",
-          "DataSource": null
-        },
-        {
-          "FieldId": "Marketing.LeadsForms.Leadsform.EmailAdress",
-          "FieldName": "EmailAdress",
-          "IsMultiValue": false,
-          "Type": "Text",
-          "DeriveFieldsFormat": "",
-          "Components": [],
-          "SetValues": [],
-          "Metadata": [
-            {
-              "Key": "Color",
-              "Value": "#7359f8"
-            },
-            {
-              "Key": "Hotkey",
-              "Value": "e"
-            }
-          ],
-          "RuleSet": null,
-          "DefaultValue": "",
-          "DataSource": null
-        },
-        {
-          "FieldId": "Marketing.LeadsForms.Leadsform.PhoneNumber",
-          "FieldName": "PhoneNumber",
-          "IsMultiValue": false,
-          "Type": "Text",
-          "DeriveFieldsFormat": "",
-          "Components": [],
-          "SetValues": [],
-          "Metadata": [
-            {
-              "Key": "Color",
-              "Value": "#5fcfb9"
-            },
-            {
-              "Key": "Hotkey",
               "Value": "h"
             }
           ],
@@ -102,7 +102,7 @@
           "DataSource": null
         },
         {
-          "FieldId": "Marketing.LeadsForms.Leadsform.CompanyDescription",
+          "FieldId": "Marketing.Leads.Forms.CompanyDescription",
           "FieldName": "CompanyDescription",
           "IsMultiValue": false,
           "Type": "Text",
@@ -112,7 +112,7 @@
           "Metadata": [
             {
               "Key": "Color",
-              "Value": "#d481e2"
+              "Value": "#8259f8"
             },
             {
               "Key": "Hotkey",
@@ -124,14 +124,27 @@
           "DataSource": null
         }
       ],
-      "Metadata": []
+      "Metadata": [
+        {
+          "Key": "OCRConfidenceThreshold",
+          "Value": "0.9"
+        },
+        {
+          "Key": "DateDisplayFormat",
+          "Value": "yyyy-MM-dd"
+        },
+        {
+          "Key": "NumberDisplayFormat",
+          "Value": "{\"DecimalSeparator\":\".\",\"ThousandsSeparator\":\"\"}"
+        }
+      ]
     }
   ],
   "Groups": [
     {
       "Name": "Marketing",
       "Categories": [
-        "Leads processing"
+        "Leads"
       ]
     }
   ],
