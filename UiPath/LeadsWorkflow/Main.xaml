@@ -220,7 +220,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:InvokeWorkflowFile>
-            <ui:GetRobotAsset AssetName="LeadBridgePath" CacheStrategy="None" DisplayName="Get LeadBridge path" FolderPath="PersonalBots" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1" TimeoutMS="10">
+            <ui:GetRobotAsset AssetName="LeadBridgePath" CacheStrategy="None" DisplayName="Get LeadBridge path" FolderPath="PersonalBots" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="GetRobotAsset_2" TimeoutMS="10">
               <ui:GetRobotAsset.Value>
                 <OutArgument x:TypeArguments="x:String">[LeadBridgePath]</OutArgument>
               </ui:GetRobotAsset.Value>
