@@ -1,7 +1,7 @@
 ﻿{
   "UiPath.UIAutomationNext.Activities.Generic.CaptureScreenshots": "True",
   "UiPath.UIAutomationNext.Activities.Generic.EnableAutoAddToOR": "True",
-  "UiPath.UIAutomationNext.Activities.SearchStepsWnd.InteractionMode": "Simulate",
+  "UiPath.UIAutomationNext.Activities.SearchStepsWnd.InteractionMode": "WindowMessages",
   "UiPath.UIAutomationNext.Activities.SearchStepsWnd.FindSelectorType": "Auto",
   "UiPath.UIAutomationNext.Activities.SearchStepsWnd.ComputerVision": "False",
   "UiPath.UIAutomationNext.Activities.SearchStepsWnd.Image": "False",

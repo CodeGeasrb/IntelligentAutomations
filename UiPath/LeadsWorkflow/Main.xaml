@@ -80,6 +80,19 @@
       <x:String>System.Text.RegularExpressions</x:String>
       <x:String>UiPath.Excel</x:String>
       <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.IntegrationService.Activities.Runtime.Models.FilterBuilder</x:String>
+      <x:String>UiPath.IntegrationService.Activities.Runtime.Models</x:String>
+      <x:String>UiPath.IntegrationService.Activities.Runtime.Helpers.TypeDetailsCustomization</x:String>
+      <x:String>UiPath.IntegrationService.Activities.Runtime.Activities</x:String>
+      <x:String>UiPath.Platform.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -163,15 +176,17 @@
       <AssemblyReference>System.Collections.Specialized</AssemblyReference>
       <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.IntegrationService.Activities.Runtime</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="1215,1230" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="1206,779" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try &quot;Leads to CRM process&quot;" sap:VirtualizedContainerService.HintSize="520,1207" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try &quot;Leads to CRM process&quot;" sap:VirtualizedContainerService.HintSize="520,756" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Variables>
         <Variable x:TypeArguments="x:Int32" Name="SmallTimeout" />
         <Variable x:TypeArguments="x:Int32" Name="LargeTimeout" />
@@ -187,28 +202,26 @@
         <Variable x:TypeArguments="uggm:GmailAttachmentLocalItem[]" Name="Attachments" />
         <Variable x:TypeArguments="p2:ExtractionResult" Name="FormData" />
         <Variable x:TypeArguments="sd:DataSet" Name="ExtractedDataset" />
-        <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="LeadData">
-          <Variable.Default>
-            <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:String)" ExpressionText="New Dictionary(Of String,String)" />
-          </Variable.Default>
-        </Variable>
+        <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Default="[New Dictionary(Of String,String)]" Name="LeadData" />
         <Variable x:TypeArguments="x:String" Name="HFToken" />
         <Variable x:TypeArguments="njl:JObject" Name="JsonObject" />
         <Variable x:TypeArguments="x:String" Name="HFResponse" />
         <Variable x:TypeArguments="njl:JObject" Name="HFResponseString" />
-        <Variable x:TypeArguments="x:String" Name="LeadsExcel" />
+        <Variable x:TypeArguments="x:String" Name="LeadsExcelPath" />
+        <Variable x:TypeArguments="sd:DataTable" Name="LeadsExcel" />
+        <Variable x:TypeArguments="x:Boolean" Name="IsDuplicate" />
       </TryCatch.Variables>
       <TryCatch.Try>
-        <Sequence DisplayName="Try &quot;Leads to CRM&quot;" sap:VirtualizedContainerService.HintSize="518,992" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="Try &quot;Leads to CRM&quot;" sap:VirtualizedContainerService.HintSize="518,541" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="Set up" sap:VirtualizedContainerService.HintSize="484,425" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <Sequence DisplayName="Set up" sap:VirtualizedContainerService.HintSize="484,57" sap2010:WorkflowViewState.IdRef="Sequence_5">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
@@ -291,7 +304,7 @@
             </ui:GetRobotAsset>
             <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="LeadsExcelPath" CacheStrategy="None" DisplayName="Leads excel path" FolderPath="PersonalBots" sap:VirtualizedContainerService.HintSize="416,48" sap2010:WorkflowViewState.IdRef="GetRobotAsset_4">
               <ui:GetRobotAsset.Value>
-                <OutArgument x:TypeArguments="x:String">[LeadsExcel]</OutArgument>
+                <OutArgument x:TypeArguments="x:String">[LeadsExcelPath]</OutArgument>
               </ui:GetRobotAsset.Value>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -403,14 +416,14 @@
                   <p4:UiPathDocumentOCR Endpoint="{x:Null}" Output="{x:Null}" Text="{x:Null}" UseLocalServer="{x:Null}" ApiKey="+AlCbskFT6c54twPmwmlzyD+fLixlbb6EzmefsJWVH0mqkt017qT24ufqa8YGAa8Ix35vcghwC2z68DhwNB4RA==" ComputeSkewAngle="False" DisplayName="UiPath Document OCR" ExtractWords="True" sap:VirtualizedContainerService.HintSize="312,25" sap2010:WorkflowViewState.IdRef="UiPathDocumentOCR_1" Language="auto" NoopExecution="False" Profile="None" Scale="1" Timeout="100000">
                     <p4:UiPathDocumentOCR.Image>
                       <InArgument x:TypeArguments="sd1:Image">
-                        <DelegateArgumentValue x:TypeArguments="sd1:Image" sap2010:WorkflowViewState.IdRef="DelegateArgumentValue`1_1">
+                        <DelegateArgumentValue x:TypeArguments="sd1:Image" sap2010:WorkflowViewState.IdRef="DelegateArgumentValue`1_13">
                           <DelegateInArgument x:TypeArguments="sd1:Image" x:Name="__ReferenceID1" Name="Image" />
                         </DelegateArgumentValue>
                       </InArgument>
                     </p4:UiPathDocumentOCR.Image>
                     <p4:UiPathDocumentOCR.PredictionId>
                       <InArgument x:TypeArguments="x:String">
-                        <DelegateArgumentValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="DelegateArgumentValue`1_2">
+                        <DelegateArgumentValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="DelegateArgumentValue`1_14">
                           <DelegateInArgument x:TypeArguments="x:String" x:Name="__ReferenceID2" Name="PredictionId" />
                         </DelegateArgumentValue>
                       </InArgument>
@@ -425,7 +438,12 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </p3:DigitizeDocument>
-            <p5:DataExtractionScope AvailableAssetPaths="{x:Null}" ClassificationResult="{x:Null}" RuntimeAssetPath="{x:Null}" RuntimeTenantUrl="{x:Null}" ApplyGenerativeValidation="False" DisplayName="Extract data" DocumentObjectModel="[FormDocument]" DocumentPath="[FormPath]" DocumentText="[FormText]" DocumentTypeId="Marketing.Leads.Forms" ExtractionResult="[FormData]" FormatValuesIfPossible="True" GenerativeValidationConfidenceThreshold="99" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="DataExtractionScope_1" Taxonomy="[Taxonomy]" TaxonomyConfiguration="{}{&quot;TaxonomyMappings&quot;:{&quot;UI0393d3b675374a4cb564298f89f325a0&quot;:{&quot;DocumentTypeMappings&quot;:{&quot;Marketing.Leads.Forms&quot;:{&quot;FieldMappings&quot;:{&quot;Marketing.Leads.Forms.FullName&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Marketing.Leads.Forms.FullName&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Marketing.Leads.Forms.Company&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Marketing.Leads.Forms.Company&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Marketing.Leads.Forms.Email&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Marketing.Leads.Forms.Email&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Marketing.Leads.Forms.PhoneNumber&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Marketing.Leads.Forms.PhoneNumber&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Marketing.Leads.Forms.CompanyDescription&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Marketing.Leads.Forms.CompanyDescription&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true}},&quot;ExtractorDocumentTypeId&quot;:null}}},&quot;UI1c8be7f94c524f22874214cd3765762e&quot;:{&quot;DocumentTypeMappings&quot;:{&quot;Marketing.Leads.Forms&quot;:{&quot;FieldMappings&quot;:{&quot;Marketing.Leads.Forms.FullName&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Marketing.Leads.Forms.FullName&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Marketing.Leads.Forms.Company&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Marketing.Leads.Forms.Company&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Marketing.Leads.Forms.Email&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Marketing.Leads.Forms.Email&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Marketing.Leads.Forms.PhoneNumber&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Marketing.Leads.Forms.PhoneNumber&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Marketing.Leads.Forms.CompanyDescription&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Marketing.Leads.Forms.CompanyDescription&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true}},&quot;ExtractorDocumentTypeId&quot;:null}}}},&quot;ExtractorMinimumConfidence&quot;:{&quot;UI0393d3b675374a4cb564298f89f325a0&quot;:&quot;0&quot;,&quot;UI1c8be7f94c524f22874214cd3765762e&quot;:&quot;0&quot;},&quot;ExtractorsAliases&quot;:{},&quot;DocumentTypeOptionsByExtractor&quot;:{&quot;UI1c8be7f94c524f22874214cd3765762e&quot;:[]}}">
+            <p5:DataExtractionScope ClassificationResult="{x:Null}" RuntimeAssetPath="{x:Null}" RuntimeTenantUrl="{x:Null}" ApplyGenerativeValidation="False" DisplayName="Extract data" DocumentObjectModel="[FormDocument]" DocumentPath="[FormPath]" DocumentText="[FormText]" DocumentTypeId="Marketing.Leads.Forms" ExtractionResult="[FormData]" FormatValuesIfPossible="True" GenerativeValidationConfidenceThreshold="99" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="DataExtractionScope_1" Taxonomy="[Taxonomy]" TaxonomyConfiguration="{}{&quot;TaxonomyMappings&quot;:{&quot;UI0393d3b675374a4cb564298f89f325a0&quot;:{&quot;DocumentTypeMappings&quot;:{&quot;Marketing.Leads.Forms&quot;:{&quot;FieldMappings&quot;:{&quot;Marketing.Leads.Forms.FullName&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Marketing.Leads.Forms.FullName&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Marketing.Leads.Forms.Company&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Marketing.Leads.Forms.Company&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Marketing.Leads.Forms.Email&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Marketing.Leads.Forms.Email&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Marketing.Leads.Forms.PhoneNumber&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Marketing.Leads.Forms.PhoneNumber&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Marketing.Leads.Forms.CompanyDescription&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Marketing.Leads.Forms.CompanyDescription&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true}},&quot;ExtractorDocumentTypeId&quot;:null}}},&quot;UI1c8be7f94c524f22874214cd3765762e&quot;:{&quot;DocumentTypeMappings&quot;:{&quot;Marketing.Leads.Forms&quot;:{&quot;FieldMappings&quot;:{&quot;Marketing.Leads.Forms.FullName&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Marketing.Leads.Forms.FullName&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Marketing.Leads.Forms.Company&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Marketing.Leads.Forms.Company&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Marketing.Leads.Forms.Email&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Marketing.Leads.Forms.Email&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Marketing.Leads.Forms.PhoneNumber&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Marketing.Leads.Forms.PhoneNumber&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Marketing.Leads.Forms.CompanyDescription&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Marketing.Leads.Forms.CompanyDescription&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true}},&quot;ExtractorDocumentTypeId&quot;:null}}}},&quot;ExtractorMinimumConfidence&quot;:{&quot;UI0393d3b675374a4cb564298f89f325a0&quot;:&quot;0&quot;,&quot;UI1c8be7f94c524f22874214cd3765762e&quot;:&quot;0&quot;},&quot;ExtractorsAliases&quot;:{},&quot;DocumentTypeOptionsByExtractor&quot;:{&quot;UI1c8be7f94c524f22874214cd3765762e&quot;:[]}}">
+              <p5:DataExtractionScope.AvailableAssetPaths>
+                <x:Array Type="x:String">
+                  <x:String>PersonalBots/LeadBridgeAccount</x:String>
+                </x:Array>
+              </p5:DataExtractionScope.AvailableAssetPaths>
               <p5:DataExtractionScope.Extractors>
                 <p5:FormExtractor SerializedSignatureFields="{x:Null}" ApiKey="+AlCbskFT6c54twPmwmlzyD+fLixlbb6EzmefsJWVH0mqkt017qT24ufqa8YGAa8Ix35vcghwC2z68DhwNB4RA==" DisplayName="Form Extractor" Endpoint="https://du.uipath.com/svc/formextractor" sap:VirtualizedContainerService.HintSize="282,164" sap2010:WorkflowViewState.IdRef="FormExtractor_1" MinOverlapPercentage="65" PersistenceId="UI0393d3b675374a4cb564298f89f325a0" SendDocumentsForAlgorithmImprovements="True" SerializedSettings="{}{&quot;DocTypeSettings&quot;:[{&quot;DocumentTypeId&quot;:&quot;Marketing.Leads.Forms&quot;,&quot;SignatureFields&quot;:[],&quot;HandwritingFields&quot;:[],&quot;BooleanSynonymsForYes&quot;:[],&quot;BooleanSynonymsForNo&quot;:[],&quot;CaseSensitiveSynonyms&quot;:false}]}" SerializedTemplates="[{&quot;DocumentTypeId&quot;:&quot;Marketing.LeadsForms.Leadsform&quot;,&quot;FormId&quot;:&quot;366b0ad1&quot;,&quot;FormName&quot;:&quot;LeadsForm&quot;,&quot;OriginalFileExtension&quot;:&quot;pdf&quot;,&quot;Pages&quot;:[{&quot;Page&quot;:0,&quot;Size&quot;:[0.0,0.0,593.0,839.0],&quot;SkewAngle&quot;:0.0,&quot;Evidence&quot;:[{&quot;Text&quot;:&quot;New&quot;,&quot;Box&quot;:[71.74,171.14,35.64,23.89]},{&quot;Text&quot;:&quot;Business&quot;,&quot;Box&quot;:[71.74,211.26,73.87,23.89]},{&quot;Text&quot;:&quot;Inquiry&quot;,&quot;Box&quot;:[71.74,289.62,56.15,23.89]},{&quot;Text&quot;:&quot;Full&quot;,&quot;Box&quot;:[158.33,37.64,19.51,15.93]},{&quot;Text&quot;:&quot;Name:&quot;,&quot;Box&quot;:[158.33,60.14,35.15,15.93]},{&quot;Text&quot;:&quot;Company&quot;,&quot;Box&quot;:[186.83,37.64,50.92,15.93]},{&quot;Text&quot;:&quot;Name:&quot;,&quot;Box&quot;:[186.83,91.54,35.15,15.93]},{&quot;Text&quot;:&quot;Jotform&quot;,&quot;Box&quot;:[813.34,50.15,64.02,14.14]}],&quot;Fields&quot;:[{&quot;Field&quot;:&quot;Marketing.LeadsForms.Leadsform.FullName&quot;,&quot;Box&quot;:[157.199,249.6382,91.3947,19.3235]},{&quot;Field&quot;:&quot;Marketing.LeadsForms.Leadsform.Company&quot;,&quot;Box&quot;:[186.9675,250.1605,144.6648,15.6677]},{&quot;Field&quot;:&quot;Marketing.LeadsForms.Leadsform.EmailAdress&quot;,&quot;Box&quot;:[216.7361,248.0715,122.2078,12.5341]},{&quot;Field&quot;:&quot;Marketing.LeadsForms.Leadsform.PhoneNumber&quot;,&quot;Box&quot;:[243.8934,251.205,78.3384,14.1009]},{&quot;Field&quot;:&quot;Marketing.LeadsForms.Leadsform.CompanyDescription&quot;,&quot;Box&quot;:[287.2406,29.2463,531.134,36.5579]}],&quot;Tables&quot;:[]}],&quot;AnchorBasedConfiguration&quot;:{&quot;AnchorBasedFieldConfiguration&quot;:[]}},{&quot;DocumentTypeId&quot;:&quot;Marketing.Leads.Forms&quot;,&quot;FormId&quot;:&quot;0b0bb835&quot;,&quot;FormName&quot;:&quot;LeadsForms&quot;,&quot;OriginalFileExtension&quot;:&quot;pdf&quot;,&quot;Pages&quot;:[{&quot;Page&quot;:0,&quot;Size&quot;:[0.0,0.0,593.0,839.0],&quot;SkewAngle&quot;:0.0,&quot;Evidence&quot;:[{&quot;Text&quot;:&quot;New&quot;,&quot;Box&quot;:[71.74,171.14,35.64,23.89]},{&quot;Text&quot;:&quot;Business&quot;,&quot;Box&quot;:[71.74,211.26,73.87,23.89]},{&quot;Text&quot;:&quot;Inquiry&quot;,&quot;Box&quot;:[71.74,289.62,56.15,23.89]},{&quot;Text&quot;:&quot;Full&quot;,&quot;Box&quot;:[158.33,37.64,19.51,15.93]},{&quot;Text&quot;:&quot;Name:&quot;,&quot;Box&quot;:[158.33,60.14,35.15,15.93]},{&quot;Text&quot;:&quot;Jotform&quot;,&quot;Box&quot;:[813.34,50.15,64.02,14.14]},{&quot;Text&quot;:&quot;Jotform&quot;,&quot;Box&quot;:[813.99,284.77,32.2,11.94]},{&quot;Text&quot;:&quot;Document&quot;,&quot;Box&quot;:[813.99,514.67,41.35,11.94]}],&quot;Fields&quot;:[{&quot;Field&quot;:&quot;Marketing.Leads.Forms.FullName&quot;,&quot;Box&quot;:[158.2435,247.5492,91.917,14.6232]},{&quot;Field&quot;:&quot;Marketing.Leads.Forms.Company&quot;,&quot;Box&quot;:[186.4453,248.5937,146.7538,14.6232]},{&quot;Field&quot;:&quot;Marketing.Leads.Forms.Email&quot;,&quot;Box&quot;:[214.6471,248.5937,125.8636,15.6677]},{&quot;Field&quot;:&quot;Marketing.Leads.Forms.PhoneNumber&quot;,&quot;Box&quot;:[242.8489,251.7272,80.9496,14.6232]},{&quot;Field&quot;:&quot;Marketing.Leads.Forms.CompanyDescription&quot;,&quot;Box&quot;:[285.6739,35.5134,521.7334,50.6588]}],&quot;Tables&quot;:[]}],&quot;AnchorBasedConfiguration&quot;:{&quot;AnchorBasedFieldConfiguration&quot;:[]}}]" Timeout="100000">
                   <p5:FormExtractor.DocumentBounds>
@@ -662,7 +680,7 @@
               </sap:WorkflowViewStateService.ViewState>
             </Assign>
           </Sequence>
-          <Sequence DisplayName="Load data" sap:VirtualizedContainerService.HintSize="484,393" sap2010:WorkflowViewState.IdRef="Sequence_10">
+          <Sequence DisplayName="Load data" sap:VirtualizedContainerService.HintSize="484,310" sap2010:WorkflowViewState.IdRef="Sequence_10">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -680,23 +698,140 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:InvokeWorkflowFile>
-            <Sequence DisplayName="Excel table" sap:VirtualizedContainerService.HintSize="450,140" sap2010:WorkflowViewState.IdRef="Sequence_14">
-              <Sequence.Variables>
-                <Variable x:TypeArguments="sd:DataTable" Name="LeadsDB" />
-              </Sequence.Variables>
+            <Sequence DisplayName="Excel DB" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="Sequence_14">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[LeadsDB]" DisplayName="Read leads excel" sap:VirtualizedContainerService.HintSize="416,48" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="LeadsDB" WorkbookPath="[LeadsExcel]">
+              <ui:MultipleAssign DisplayName="Data cleaning" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+                <ui:MultipleAssign.AssignOperations>
+                  <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[LeadData("FirstName")]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[LeadData("FullName").Trim.Split(" "c)(0)]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[LeadData("LastName")]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[String.Join(" ", LeadData("FullName").Trim.Split(" "c).Skip(1))]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[LeadData("PhoneClean")]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Replace(LeadData("PhoneNumber"), "[^\d]", "")]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                  </scg:List>
+                </ui:MultipleAssign.AssignOperations>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-              </ui:ReadRange>
+              </ui:MultipleAssign>
+              <Assign DisplayName="Duplicate lead?" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="Assign_7">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Boolean">[IsDuplicate]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Boolean">[LeadsExcel.AsEnumerable().Any(Function(row) row("First Name").ToString().Trim().ToLower().Contains(LeadData("FirstName").Trim().ToLower()) AndAlso row("Last Name").ToString().Trim().ToLower().Contains(LeadData("LastName").Trim().ToLower()) AndAlso row("Company").ToString().Trim().ToLower().Contains(LeadData("CompanyName").Trim().ToLower()))]</InArgument>
+                </Assign.Value>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </Assign>
+              <If Condition="[IsDuplicate = True]" DisplayName="Is lead already in excel DB?" sap:VirtualizedContainerService.HintSize="416,48" sap2010:WorkflowViewState.IdRef="If_1">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If.Then>
+                  <Sequence DisplayName="Yes" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Log and Report - loading data" sap:VirtualizedContainerService.HintSize="382,48" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="LogAndReportStatus.xaml">
+                      <ui:InvokeWorkflowFile.Arguments>
+                        <InArgument x:TypeArguments="x:String" x:Key="Message">This lead was already in the DB!</InArgument>
+                      </ui:InvokeWorkflowFile.Arguments>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:InvokeWorkflowFile>
+                  </Sequence>
+                </If.Then>
+                <If.Else>
+                  <Sequence DisplayName="No" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="sd:DataTable" Name="NewLead" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:BuildDataTable DataTable="[NewLead]" DisplayName="Create new lead row" sap:VirtualizedContainerService.HintSize="382,57" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;First_x0020_Name&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Last_x0020_Name&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Company&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Email&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Phone&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Bussiness_x0020_Category&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:BuildDataTable>
+                    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{LeadData(&quot;FirstName&quot;),LeadData(&quot;LastName&quot;),LeadData(&quot;CompanyName&quot;),LeadData(&quot;EmailAdress&quot;),LeadData(&quot;PhoneClean&quot;),LeadData(&quot;BussinessCategory&quot;)}]" DataTable="[NewLead]" DisplayName="Add new lead row" sap:VirtualizedContainerService.HintSize="382,57" sap2010:WorkflowViewState.IdRef="AddDataRow_1">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:AddDataRow>
+                    <ui:AppendRange WorkbookPathResource="{x:Null}" DataTable="[NewLead]" DisplayName="Add new lead" sap:VirtualizedContainerService.HintSize="382,57" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="LeadsDB" WorkbookPath="[LeadsExcelPath]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:AppendRange>
+                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Log and Report - loading data" sap:VirtualizedContainerService.HintSize="382,48" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="LogAndReportStatus.xaml">
+                      <ui:InvokeWorkflowFile.Arguments>
+                        <InArgument x:TypeArguments="x:String" x:Key="Message">New lead successfully uploaded!</InArgument>
+                      </ui:InvokeWorkflowFile.Arguments>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:InvokeWorkflowFile>
+                  </Sequence>
+                </If.Else>
+              </If>
             </Sequence>
             <Sequence DisplayName="Lead Bridge app" sap:VirtualizedContainerService.HintSize="450,113" sap2010:WorkflowViewState.IdRef="Sequence_15">
               <sap:WorkflowViewStateService.ViewState>
