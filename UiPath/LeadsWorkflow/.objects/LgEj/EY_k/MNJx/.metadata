@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Use LeadBridge app",
+  "Type": "Screen",
+  "Id": "MNJxH5E2yUK3MNpuPp3LJg",
+  "Reference": "u13qiXyNsUyb_Y4UqK5jzQ/MNJxH5E2yUK3MNpuPp3LJg",
+  "ParentRef": "u13qiXyNsUyb_Y4UqK5jzQ/EY_krl95KE6HuATvJ-yijA",
+  "Created": "2025-07-22T20:10:38.4956057Z",
+  "Updated": "2025-07-22T20:10:38.4956057Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.10.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

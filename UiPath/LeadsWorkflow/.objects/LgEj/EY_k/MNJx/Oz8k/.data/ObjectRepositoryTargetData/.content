@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="niWCNjNJoEilvrYhN5w0Mg" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" DesignTimeRectangle="155, 98, 41, 24" FullSelectorArgument="&lt;qt rawtext='OK' role='QPushButton' /&gt;" Guid="cd8adf0a-8275-41ec-acf8-ec6714515629" ScopeSelectorArgument="&lt;wnd app='leadbridge_crm.exe' cls='Qt*QWindowIcon' title='Incomplete Data' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="23d2411c74a460df160f52df59668869.png" xmlns="">0ZG2-3bWY40qzrjpKTVgF3Q</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

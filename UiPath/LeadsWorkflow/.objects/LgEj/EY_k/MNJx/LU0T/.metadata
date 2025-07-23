@@ -1,0 +1,13 @@
+﻿{
+  "Name": "bTotal Leadsb 8b…",
+  "Type": "Element",
+  "Id": "LU0TCGf1b06kggfthgzA5g",
+  "Reference": "u13qiXyNsUyb_Y4UqK5jzQ/LU0TCGf1b06kggfthgzA5g",
+  "ParentRef": "u13qiXyNsUyb_Y4UqK5jzQ/MNJxH5E2yUK3MNpuPp3LJg",
+  "Created": "2025-07-22T20:10:38.8319285Z",
+  "Updated": "2025-07-22T20:10:38.8319285Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.10.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

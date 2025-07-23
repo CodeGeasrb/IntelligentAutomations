@@ -1,0 +1,13 @@
+﻿{
+  "Name": "New lead successfully uploaded",
+  "Type": "Element",
+  "Id": "8KFUclNf7UquwWiSbpPPNg",
+  "Reference": "u13qiXyNsUyb_Y4UqK5jzQ/8KFUclNf7UquwWiSbpPPNg",
+  "ParentRef": "u13qiXyNsUyb_Y4UqK5jzQ/MNJxH5E2yUK3MNpuPp3LJg",
+  "Created": "2025-07-23T14:24:33.8015397Z",
+  "Updated": "2025-07-23T14:24:33.8015397Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.10.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}
