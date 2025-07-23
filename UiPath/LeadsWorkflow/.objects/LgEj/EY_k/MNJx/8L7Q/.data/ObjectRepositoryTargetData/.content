@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="IVT4r9TdfEWfpf8CeiD-PQ" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" DesignTimeRectangle="0, 0, 894, 598" Guid="0d02e3d6-b869-4fbf-a154-1ed1e6db5b2b" ScopeSelectorArgument="&lt;wnd app='leadbridge_crm.exe' cls='Qt*QWindowIcon' title='LeadBridge CRM' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="1c51d13d70569ba13dbe3a16a47d213a.png" xmlns="">0md1DbIEAs0i_B0DIqQ7FqA</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">CheckState</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

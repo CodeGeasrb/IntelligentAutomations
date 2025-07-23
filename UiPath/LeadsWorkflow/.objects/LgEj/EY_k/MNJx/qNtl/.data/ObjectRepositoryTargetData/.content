@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="VlN1ALxMqUqCtdKoXexdXA" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" DesignTimeRectangle="840, 1, 47, 30" ElementType="Button" FullSelectorArgument="&lt;ctrl name='Cerrar' role='push button' /&gt;" Guid="9118fbe7-f8ad-4204-adbc-84fc67fe7dbb" ScopeSelectorArgument="&lt;wnd app='leadbridge_crm.exe' cls='Qt*QWindowIcon' title='LeadBridge CRM' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="d8972cbd6197ced0094a3c85cebc9595.png" xmlns="">0C8xPYIJB10CN61yGyprqnQ</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

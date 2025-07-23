@@ -28554,20 +28554,16 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\rrincon\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\RigobertoRincon\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "LeadsWorkflow",
       "projectName": "LeadsWorkflow",
-      "projectPath": "C:\\Users\\rrincon\\Downloads\\CodeGeasGithub\\IntelligentAutomations\\UiPath\\LeadsWorkflow\\.local",
-      "packagesPath": "C:\\Users\\rrincon\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rrincon\\Downloads\\CodeGeasGithub\\IntelligentAutomations\\UiPath\\LeadsWorkflow\\.local",
+      "projectPath": "C:\\Users\\RigobertoRincon\\Desktop\\LeadsWorkflow\\.local",
+      "packagesPath": "C:\\Users\\RigobertoRincon\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\RigobertoRincon\\Desktop\\LeadsWorkflow\\.local",
       "UsingMicrosoftNETSdk": false,
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "restoreAuditProperties": {
         "enableAudit": "False"
       }
